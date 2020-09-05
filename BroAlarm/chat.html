@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro Time</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scriptMain.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="dropdown">
+            <div class="container" id="container">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="dropdown-content" class="dropdown-content">
+                <div id="usernameDiv">
+                    <h2 id="username">username</h2>
+                </div>
+                <input type="button" value="logout" id="logout">
+            </div>
+        </div>
+        <h2>Bro Time</h2>
+    </header>
+    <div id="main">
+        <div id="bros">     
+            <div id="jsn">
+                <h2>JSN</h2>
+                <img src="jsn.png" alt="jsn" class="broImg">
+                <p id="jsnp">I'm not ready</p>
+            </div>
+            <div id="hnrk">
+                <h2>HNRK</h2>
+                <img src="hnrk.png" alt="hnrk" class="broImg">
+                <p id="hnrkp">I'm not ready</p>
+            </div>
+            <div id="dim">
+                <h2>DIM</h2>
+                <img src="dim.png" alt="dim" class="broImg">
+                <p id="dimp">I'm not ready</p>
+            </div>
+            <div id="drnz">
+                <h2>DRNZ</h2>
+                <img src="drnz.png" alt="drnz" class="broImg">
+                <p id="drnzp">I'm not ready</p>
+            </div>
+        </div>
+        <div id="input">
+            <form id="textbox">
+                <input type="button" value="ready?" id="sendRdy">
+                <br>
+                <textarea cols="40" rows="5" id="sendMsg"></textarea>
+            </form>
+            <audio id="song" src="" autoplay loop></audio>
+        </div>
+    </div>
+</body>
+</html>

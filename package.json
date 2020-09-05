@@ -1,0 +1,33 @@
+{
+  "name": "gis-sose-2020",
+  "version": "1.0.0",
+  "description": "package for heroku",
+  "main": "index.js",
+  "dependencies": {
+    "@types/mongodb": "^3.5.25",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.9",
+    "nodemailer": "^6.4.11",
+    "push.js": "^1.0.12",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "start": "node BroAlarm/server.js remote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bajergis/Shlabber.git"
+  },
+  "keywords": [
+    "(eh)"
+  ],
+  "author": " (jason.blackschleger)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bajergis/Shlabber/issues"
+  },
+  "homepage": "https://github.com/bajergis/Shlabber#readme"
+}

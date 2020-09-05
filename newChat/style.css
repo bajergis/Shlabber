@@ -1,0 +1,220 @@
+@media (max-width: 600px){
+    /* phone */
+    #header > h2 {
+        font-size: 14px;
+    }
+
+    #sendRdy, #sendNotRdy{
+        width: 60px;
+        height: 60px;
+        font-size: 10px;
+        border-radius: 10px;
+        border: solid black;
+        background-color: pink;
+    }
+
+}
+@media (max-width: 1024px){
+    /* tablet */
+
+    #header > h2 {
+        font-size: 16px;
+    }
+
+    #sendRdy, #sendNotRdy{
+        width: 80px;
+        height: 80px;
+        font-size: 13px;
+        border-radius: 10px;
+        border: solid black;
+        background-color: pink;
+    }
+}
+@media (min-width: 1024px){
+    /* desktop */
+
+    #header > h2 {
+        font-size: 18px;
+    }
+
+    #sendRdy, #sendNotRdy{
+        width: 100px;
+        height: 100px;
+        font-size: 15px;
+        border-radius: 5px;
+        border: solid black;
+        background-color: pink;
+    }
+}
+
+/* body and main things */
+
+body{
+    width: 100%;
+    height: 100%;
+    color: black;
+    background-image: url(tenor.gif);
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: auto auto auto auto;
+}
+
+body header{
+    background-color: pink;
+    color: black;
+    padding: 14px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 20px;
+}
+
+/*hauptbanner*/
+h2{
+    margin-top: 0px;
+    font-weight: lighter;
+}
+
+/*chat list "header"*/
+h3{
+    text-align: center;
+    color: white;
+}
+
+/*username in chatbox*/
+h4{
+    color: #ee7752;
+    margin-left: 75px;
+}
+
+/* header content */
+
+/* hamburger menu */
+.container{
+    cursor: pointer;
+}
+
+.dropdown{
+    float: left;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid black;
+    color: black;
+    width: 280px;
+    margin-left: -24px;
+    margin-top: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* message content */
+
+#bros{
+    padding: 5px;
+    border-color: black;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#bros > div{
+    padding: 10px;
+    border: solid;
+    border-color: black;
+    border-radius: 5px;
+    background-color: pink;
+    width: 300px;
+    height: 300px;
+    margin: 60px auto;
+}
+
+#bros > div > p{
+    text-align: center;
+    font-size: 20px;
+}
+
+.time{
+    float: right;
+    color: #aaa;
+    margin-top: -10px;
+    margin-right: 20px;
+}
+
+/* input content */
+
+#input{
+    padding: 20px;
+    text-align: center;
+}
+
+#sendRdy:hover, #sendNotRdy:hover{
+    border-radius: 5px;
+    background-color: yellow;
+}
+
+
+/* Login Page */
+
+#loginBtn{
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#registerBtn{
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+label{
+    opacity: 50%;
+}
+
+#aligncenter{
+    text-align: center;
+}
+
+#logincss{
+    margin: 100px auto auto auto;
+    border: 2px solid #ccc;
+    width: 200px;
+    height: 200px;
+    padding: 25px;
+}
+
+#logincss input{
+    margin: 10px;
+}
+
+img{
+    width: 200px;
+    margin-left: 50px;
+}
+
+#gamerTime {
+    font-size: 40px;
+    text-align: center;
+    animation: color-change 0.5s infinite;
+}
+
+@keyframes color-change {
+    0% {color: red;}
+    25% {color: green;}
+    50% {color: yellow;}
+    75% {color: blue;}
+    100% {color: red;}
+}
+
