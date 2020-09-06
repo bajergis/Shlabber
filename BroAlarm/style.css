@@ -49,12 +49,16 @@
 
 /* body and main things */
 
+#sendRdy, #sendNotRdy{
+    margin-left: 20px;
+}
+
 body{
     width: 100%;
     height: 100%;
     color: black;
     background-image: url(bg/alpha\ sipping\ coffee\ tint.png);
-    background-size: 100%;
+    background-size: 200vh;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -127,6 +131,7 @@ h4{
     padding: 5px;
     border-color: black;
     margin: auto;
+    margin-bottom: 5%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -137,7 +142,7 @@ h4{
     border-color: black;
     border-radius: 5px;
     background-color: pink;
-    width: 300px;
+    width: 250px;
     height: 100%;
     margin: 60px auto;
 }
@@ -157,12 +162,15 @@ h4{
 /* input content */
 
 #input{
-    padding: 20px;
-    text-align: center;
+    background: pink;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 #sendRdy:hover, #sendNotRdy:hover{
-    border-radius: 5px;
     background-color: yellow;
 }
 
@@ -207,7 +215,7 @@ img{
 
 .broImg{
     width: 200px;
-    margin-left: 50px;
+    margin-left: 25px;
 }
 
 #gamerTime {
@@ -223,4 +231,12 @@ img{
     75% {color: blue;}
     100% {color: red;}
 }
+
+textarea{
+    resize: none;
+    width: 80%;
+    float: left;
+}
+
+
 

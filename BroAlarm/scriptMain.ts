@@ -25,10 +25,12 @@ namespace Klausur {
     let dimDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("dim");
     let drnzDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("drnz");
     let hnrkDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("hnrk");
+    let olxDiv: HTMLDivElement = <HTMLDivElement> document.getElementById("olx");
     let jsnP: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("jsnp");
     let dimP: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("dimp");
     let drnzP: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("drnzp");
     let hnrkP: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("hnrkp");
+    let olxP: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("olxp");
 
     let main: HTMLDivElement = <HTMLDivElement> document.getElementById("main");
 
@@ -74,6 +76,8 @@ namespace Klausur {
     dim = false;
     let hnrk: boolean;
     hnrk = false;
+    let olx: boolean;
+    olx = false;
 
     let firstRefresh: boolean;
     firstRefresh = true;
@@ -125,6 +129,12 @@ namespace Klausur {
             }
             else buttonHTML.addEventListener("click", sendNotReady);
         }
+        else if (user == "olx") {
+            if (!olx) {
+                buttonHTML.addEventListener("click", sendReady);
+            }
+            else buttonHTML.addEventListener("click", sendNotReady);
+        }
     }
     else buttonLogout.setAttribute("value", "log in");
 
@@ -150,6 +160,11 @@ namespace Klausur {
             hnrkDiv.style.backgroundColor = "#77dd77";
             hnrkP.innerHTML = "I'm ready";
         }
+        if (user == "olx") {
+            olx = true;
+            olxDiv.style.backgroundColor = "#77dd77";
+            olxP.innerHTML = "I'm ready";
+        }
         buttonHTML.addEventListener("click", sendNotReady);
         buttonHTML.removeEventListener("click", sendReady);
         let message: string = "ready";
@@ -168,23 +183,28 @@ namespace Klausur {
         jibunWo.currentTime = 0;
         if (user == "jsn") {
             jsn = false;
-            jsnDiv.style.backgroundColor = "#ffc0cb";
+            jsnDiv.style.backgroundColor = "pink";
             jsnP.innerHTML = "I'm not ready";
         }
         if (user == "dim") {
             dim = false;
-            dimDiv.style.backgroundColor = "#ffc0cb";
+            dimDiv.style.backgroundColor = "pink";
             dimP.innerHTML = "I'm not ready";
         }
         if (user == "drnz") {
             drnz = false;
-            drnzDiv.style.backgroundColor = "#ffc0cb";
+            drnzDiv.style.backgroundColor = "pink";
             drnzP.innerHTML = "I'm not ready";
         }
         if (user == "hnrk") {
             hnrk = false;
-            hnrkDiv.style.backgroundColor = "#ffc0cb";
+            hnrkDiv.style.backgroundColor = "pink";
             hnrkP.innerHTML = "I'm  not ready";
+        }
+        if (user == "olx") {
+            olx = false;
+            olxDiv.style.backgroundColor = "pink";
+            olxP.innerHTML = "I'm  not ready";
         }
         buttonHTML.removeEventListener("click", sendNotReady);
         buttonHTML.addEventListener("click", sendReady);
@@ -222,9 +242,7 @@ namespace Klausur {
                 else if (msg != "ready" && can != "") {
                     jsnP.innerHTML = can;
                 }
-                else { jsnP.innerHTML = "I'm not ready";
-                       jsnDiv.style.backgroundColor = "#ffc0cb";
-                     }
+                else jsnP.innerHTML = "I'm not ready";
             }
             else if (currentUser == "hnrk") {
                 if (msg == "ready") {
@@ -238,9 +256,7 @@ namespace Klausur {
                 else if (msg != "ready" && can != "") {
                     hnrkP.innerHTML = can;
                 }
-                else { hnrkP.innerHTML = "I'm not ready";
-                       hnrkDiv.style.backgroundColor = "#ffc0cb";
-                     }
+                else hnrkP.innerHTML = "I'm not ready";
             }
             else if (currentUser == "dim") {
                 if (msg == "ready") {
@@ -254,9 +270,7 @@ namespace Klausur {
                 else if (msg != "ready" && can != "") {
                     dimP.innerHTML = can;
                 }
-                else { dimP.innerHTML = "I'm not ready";
-                       dimDiv.style.backgroundColor = "#ffc0cb";
-                     }
+                else dimP.innerHTML = "I'm not ready";
             }
             else if (currentUser == "drnz") {
                 if (msg == "ready") {
@@ -270,9 +284,21 @@ namespace Klausur {
                 else if (msg != "ready" && can != "") {
                     drnzP.innerHTML = can;
                 }
-                else { drnzP.innerHTML = "I'm not ready";
-                       drnzDiv.style.backgroundColor = "#ffc0cb";
-                     }
+                else drnzP.innerHTML = "I'm not ready";
+            }
+            else if (currentUser == "olx") {
+                if (msg == "ready") {
+                    olx = true;
+                    drnzDiv.style.backgroundColor = "#77dd77";
+                    if (can != "") {
+                        olxP.innerHTML = can;
+                    }
+                    else olxP.innerHTML = "I'm ready";
+                }
+                else if (msg != "ready" && can != "") {
+                    olxP.innerHTML = can;
+                }
+                else olxP.innerHTML = "I'm not ready";
             }
         }
     }
