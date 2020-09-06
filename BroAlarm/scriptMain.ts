@@ -289,7 +289,7 @@ namespace Klausur {
             else if (currentUser == "olx") {
                 if (msg == "ready") {
                     olx = true;
-                    drnzDiv.style.backgroundColor = "#77dd77";
+                    olxDiv.style.backgroundColor = "#77dd77";
                     if (can != "") {
                         olxP.innerHTML = can;
                     }
