@@ -9,12 +9,11 @@
 <body>
     <div>
         <p>It's Terence-Nutsack-Shlabber-Tuesday in:</p>
-        <p id="time">IT IS TIME!</p>
+        <p id="time"></p>
         <br>
         <img src="drnz.png">
 
     <script>
-      /**
       // Set the date we're counting down to
       var countDownDate = new Date("Sep 8, 2020 00:00:00").getTime();
       
@@ -40,10 +39,9 @@
         // If the count down is finished, write some text
         if (distance < 0) {
           clearInterval(x);
-          document.getElementById("demo").innerHTML = "THE TIME HAS COME!";
+          document.getElementById("time").innerHTML = "THE TIME HAS COME!";
         }
       }, 1000);
-      **/
       </script>
     </div>
 </body>
