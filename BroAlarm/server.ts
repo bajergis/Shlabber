@@ -86,6 +86,7 @@ export namespace Klausur {
       //pull current statuses
       else if (data.pathname == "/pullready") {
         _response.write(JSON.stringify(await pull(ordersReady)));
+        console.log("pull log file works")
       }
     }
     _response.end(); 
