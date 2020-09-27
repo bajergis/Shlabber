@@ -44,6 +44,21 @@ export namespace Klausur {
       console.log("Database connection", ordersUser != undefined);
   }
 
+  let now: Date = new Date();
+  let midnight: Date = new Date( 2020, 9, 27, 11, 11, 0, 0);
+  let hour: boolean = now.getHours == midnight.getHours;
+  let minute: boolean = now.getMinutes == midnight.getMinutes;
+  let second: boolean = now.getSeconds == midnight.getSeconds;
+
+
+  function dailyReset(): void {
+    if(hour && minute && second) {
+      ordersReady.findOneAndReplace({message: "ready"}, {message: "notready"});
+    }
+  }
+
+  dailyReset();
+
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> { 
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");    

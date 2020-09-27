@@ -38,6 +38,17 @@ var Klausur;
         ordersReady = mongoClient.db("brotime").collection("ready");
         console.log("Database connection", ordersUser != undefined);
     }
+    let now = new Date();
+    let midnight = new Date(2020, 9, 27, 11, 11, 0, 0);
+    let hour = now.getHours == midnight.getHours;
+    let minute = now.getMinutes == midnight.getMinutes;
+    let second = now.getSeconds == midnight.getSeconds;
+    function dailyReset() {
+        if (hour && minute && second) {
+            ordersReady.findOneAndReplace({ message: "ready" }, { message: "notready" });
+        }
+    }
+    dailyReset();
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
