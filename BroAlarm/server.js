@@ -66,9 +66,13 @@ var Klausur;
             //send improve
             if (data.pathname == "/send" + data.query.username + "Ready") {
                 ordersReady.findOneAndReplace({ username: data.query.username, message: "notready" }, data.query);
+                console.log(data.query);
+                console.log(data.query.username);
             }
             else if (data.pathname == "/send" + data.query.username + "NotReady") {
                 ordersReady.findOneAndReplace({ username: data.query.username, message: "ready" }, data.query);
+                console.log(data.query);
+                console.log(data.query.username);
             }
             //pull current statuses
             else if (data.pathname == "/pullready") {

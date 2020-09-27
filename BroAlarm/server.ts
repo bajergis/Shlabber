@@ -78,15 +78,19 @@ export namespace Klausur {
       //send improve
       if (data.pathname == "/send" + data.query.username + "Ready") {
         ordersReady.findOneAndReplace({username: data.query.username, message: "notready"}, data.query);
+        console.log(data.query);
+        console.log(data.query.username);
       }
       else if (data.pathname == "/send" + data.query.username + "NotReady") {
         ordersReady.findOneAndReplace({username: data.query.username, message: "ready"}, data.query);
+        console.log(data.query);
+        console.log(data.query.username);
       }
 
       //pull current statuses
       else if (data.pathname == "/pullready") {
         _response.write(JSON.stringify(await pull(ordersReady)));
-        console.log("pull log file works")
+        console.log("pull log file works");
       }
     }
     _response.end(); 
