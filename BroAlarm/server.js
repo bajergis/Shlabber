@@ -39,7 +39,7 @@ var Klausur;
         console.log("Database connection", ordersUser != undefined);
     }
     let now = new Date();
-    let midnight = new Date(2020, 9, 27, 11, 11, 0, 0);
+    let midnight = new Date(2020, 9, 27, 11, 15, 0, 0);
     let hour = now.getHours == midnight.getHours;
     let minute = now.getMinutes == midnight.getMinutes;
     let second = now.getSeconds == midnight.getSeconds;

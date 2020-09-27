@@ -45,7 +45,7 @@ export namespace Klausur {
   }
 
   let now: Date = new Date();
-  let midnight: Date = new Date( 2020, 9, 27, 11, 11, 0, 0);
+  let midnight: Date = new Date( 2020, 9, 27, 11, 15, 0, 0);
   let hour: boolean = now.getHours == midnight.getHours;
   let minute: boolean = now.getMinutes == midnight.getMinutes;
   let second: boolean = now.getSeconds == midnight.getSeconds;
