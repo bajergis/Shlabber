@@ -23,6 +23,7 @@ var Klausur;
         let server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
+        server.addListener("checkForReset", dailyReset);
         server.listen(_port);
     }
     function handleListen() {
@@ -30,6 +31,7 @@ var Klausur;
     }
     startServer(port);
     connect(dbLink);
+    dailyReset();
     async function connect(_url) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new mongo.MongoClient(_url, options);
@@ -42,14 +44,16 @@ var Klausur;
     let midnight = new Date(2020, 9, 27, 11, 15, 0, 0);
     let hour = now.getHours == midnight.getHours;
     let minute = now.getMinutes == midnight.getMinutes;
-    let second = now.getSeconds == midnight.getSeconds;
+    let changed = false;
     function dailyReset() {
-        if (hour && minute && second) {
-            console.log("reset ready values");
-            ordersReady.findOneAndReplace({ message: "ready" }, { message: "notready" });
+        if (!changed) {
+            if (hour && minute) {
+                console.log("reset ready values");
+                ordersReady.findOneAndReplace({ message: "ready" }, { message: "notready" });
+            }
+            changed = true;
         }
     }
-    dailyReset();
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
@@ -68,6 +72,7 @@ var Klausur;
                 ordersReady.findOneAndReplace({ username: data.query.username, message: "notready" }, data.query);
                 console.log(data.query);
                 console.log(data.query.username);
+                changed = false;
             }
             else if (data.pathname == "/send" + data.query.username + "NotReady") {
                 ordersReady.findOneAndReplace({ username: data.query.username, message: "ready" }, data.query);

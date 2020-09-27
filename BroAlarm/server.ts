@@ -25,6 +25,7 @@ export namespace Klausur {
     let server: Http.Server = Http.createServer(); 
     server.addListener("request", handleRequest); 
     server.addListener("listening", handleListen);
+    server.addListener("checkForReset", dailyReset);
     server.listen(_port);
   }
 
@@ -34,6 +35,7 @@ export namespace Klausur {
  
   startServer(port);
   connect(dbLink);
+  dailyReset();
 
   async function connect(_url: string): Promise<void> {
       let options: mongo.MongoClientOptions = {useNewUrlParser: true, useUnifiedTopology: true};
@@ -48,17 +50,18 @@ export namespace Klausur {
   let midnight: Date = new Date( 2020, 9, 27, 11, 15, 0, 0);
   let hour: boolean = now.getHours == midnight.getHours;
   let minute: boolean = now.getMinutes == midnight.getMinutes;
-  let second: boolean = now.getSeconds == midnight.getSeconds;
+  let changed: boolean = false;
 
 
   function dailyReset(): void {
-    if(hour && minute && second) {
-      console.log("reset ready values");
-      ordersReady.findOneAndReplace({message: "ready"}, {message: "notready"});
+    if (!changed) {
+      if(hour && minute) {
+        console.log("reset ready values");
+        ordersReady.findOneAndReplace({message: "ready"}, {message: "notready"});
+      }
+      changed = true;
     }
   }
-
-  dailyReset();
 
   async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> { 
     _response.setHeader("content-type", "text/html; charset=utf-8");
@@ -80,6 +83,7 @@ export namespace Klausur {
         ordersReady.findOneAndReplace({username: data.query.username, message: "notready"}, data.query);
         console.log(data.query);
         console.log(data.query.username);
+        changed = false;
       }
       else if (data.pathname == "/send" + data.query.username + "NotReady") {
         ordersReady.findOneAndReplace({username: data.query.username, message: "ready"}, data.query);
