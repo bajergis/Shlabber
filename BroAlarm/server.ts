@@ -53,6 +53,7 @@ export namespace Klausur {
 
   function dailyReset(): void {
     if(hour && minute && second) {
+      console.log("reset ready values");
       ordersReady.findOneAndReplace({message: "ready"}, {message: "notready"});
     }
   }

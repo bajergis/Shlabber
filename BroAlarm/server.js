@@ -45,6 +45,7 @@ var Klausur;
     let second = now.getSeconds == midnight.getSeconds;
     function dailyReset() {
         if (hour && minute && second) {
+            console.log("reset ready values");
             ordersReady.findOneAndReplace({ message: "ready" }, { message: "notready" });
         }
     }
